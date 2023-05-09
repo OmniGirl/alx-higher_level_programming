@@ -1,0 +1,3 @@
+#!/bin/bash
+export PYFILE=my_script.py
+./compile_pyfile.sh
