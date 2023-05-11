@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
-for i in range(0, 100):
-print("{:02}".format(i), end=", ")
-if i != 99:
-print("{}".format(i))
+for number in range(0, 100):
+if number == 99:
+print("{}".format(number))
+else:
+print("{:02}".format(number), end=", ")
