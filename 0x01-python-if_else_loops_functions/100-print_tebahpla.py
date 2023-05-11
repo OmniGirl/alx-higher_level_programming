@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+
+i % 2 == 0:
 for i in range(ord('z'), ord('a') - 1, -1):
-if i % 2 == 0:
-print(chr(i).lower(), end='')
-else:
-print(chr(i).upper(), end='')
+print("{}".format(chr(c - i)), end="")
+i = 32 if i == 0 else 0
