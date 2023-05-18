@@ -1,5 +1,5 @@
-
-n_elements = __import__('3-common_elements').common_elements
+#!/usr/bin/python3
+common_elements = __import__('3-common_elements').common_elements
 
 set_1 = { "Python", "C", "Javascript" }
 set_2 = { "Bash", "C", "Ruby", "Perl" }
