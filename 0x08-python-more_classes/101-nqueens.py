@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
-Solves the N-queens puzzle by determining all possible solutions to placing N
-Non-attacking queens on the NxN chessboard
+Solution to the N-queens puzzle.
+Determines all possible solutions to placing N
+N non-attacking queens on an NxN chessboard
 """
 from sys import argv
 if __name__ == "__main__":
-    a = []
+    ab = []
     if len(argv) != 2:
         print("Usage: nqueens N")
         exit(1)
@@ -17,41 +18,41 @@ if __name__ == "__main__":
         print("N must be at least 4")
         exit(1)
     # initialize the answer list
-    for i in range(h):
-        a.append([i, None])
+    for z in range(h):
+        ab.append([z, None])
 
-    def already_exists(y):
-        """check that a queen does not already exist in that y value"""
-        for x in range(h):
-            if y == a[x][1]:
+    def already_exists(q):
+        """check that a queen does not already exist in that f value"""
+        for f in range(h):
+            if q == ab[f][1]:
                 return True
         return False
 
-    def reject(x, y):
+    def reject(f, q):
         """determines whether or not to reject the solution"""
-        if (already_exists(y)):
+        if (already_exists(q)):
             return False
-        i = 0
-        while(i < x):
-            if abs(a[i][1] - y) == abs(i - x):
+        z = 0
+        while(z < f):
+            if abs(ab[z][1] - q) == abs(z - f):
                 return False
-            i += 1
+            z += 1
         return True
 
-    def clear_a(x):
+    def clear_a(f):
         """clears the answers from the point of failure on"""
-        for i in range(x, h):
-            a[i][1] = None
+        for z in range(f, h):
+            ab[z][1] = None
 
-    def nqueens(x):
+    def nqueens(f):
         """recursive backtracking function to find the solution"""
-        for y in range(h):
-            clear_a(x)
-            if reject(x, y):
-                a[x][1] = y
-                if (x == h - 1):  # accepts the solution
-                    print(a)
+        for q in range(h):
+            clear_a(f)
+            if reject(f, q):
+                ab[f][1] = q
+                if (f == h - 1):  # accepts the solution
+                    print(ab)
                 else:
-                    nqueens(x + 1)  # moves on to next x value to continue
-    # start the recursive process at x = 0
+                    nqueens(f + 1)  # moves on to next f value to continue
+    # start the recursive process at f = 0
     nqueens(0)
